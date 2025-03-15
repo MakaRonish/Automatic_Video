@@ -1,3 +1,4 @@
-rename_file = "test" + ".mp4"
+import pyautogui
+import time
 
-print(rename_file)
+print(pyautogui.position())
