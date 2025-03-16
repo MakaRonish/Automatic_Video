@@ -20,7 +20,7 @@ def open_Realit(url, insta_link):
     pyautogui.scroll(-200)
     time.sleep(2)
     pyautogui.click(913, 1447)
-    print("Real downloaded")
+    time.sleep(3)
 
 
 def moving_file():
@@ -52,6 +52,7 @@ def moving_file():
     except NameError:
         open_Realit(url, insta_link)
         moving_file()
+    return yt_folder_link + f"/{rename_file}"
 
 
 def upload_in_tiktok():
@@ -61,14 +62,48 @@ def upload_in_tiktok():
     time.sleep(2)
     pyautogui.click(1618, 1196)
     time.sleep(2)
-    pyautogui.click(686, 448)
+    pyautogui.click(667, 328)
     time.sleep(2)
-    pyautogui.click(2291, 1476)
+    pyautogui.click(2383, 1637)
     time.sleep(5)
     pyautogui.scroll(-1000)
     time.sleep(5)
-    # pyautogui.click(738, 1515)
-    print("done")
+    pyautogui.click(738, 1515)
+
+
+def upload_in_youtube():
+    webbrowser.open_new(yt_studio)
+    time.sleep(3)
+    pyautogui.click(2473, 227)
+    time.sleep(1)
+
+    pyautogui.click(2404, 314)
+    time.sleep(1)
+    pyautogui.click(1362, 1175)
+    time.sleep(3)
+    pyautogui.click(667, 328)
+    time.sleep(2)
+    pyautogui.click(2383, 1637)
+    time.sleep(5)
+    pyautogui.click(1756, 1360)
+    time.sleep(1)
+    pyautogui.scroll(-1000)
+    time.sleep(2)
+    pyautogui.click(524, 1094)
+    time.sleep(2)
+    pyautogui.click(2208, 1549)
+    time.sleep(2)
+    pyautogui.click(2208, 1549)
+    time.sleep(2)
+    pyautogui.click(2208, 1549)
+    time.sleep(2)
+    pyautogui.click(625, 1108)
+    time.sleep(2)
+    pyautogui.click(2208, 1549)
+
+
+def delete_file(path):
+    os.remove(path)
 
 
 if __name__ == "__main__":
@@ -77,8 +112,11 @@ if __name__ == "__main__":
     rename_file = input("Title of video") + ".mp4"
     yt_folder_link = "C:/Users/ronis/OneDrive - Global College of Management/ytshorts"
     tiktok_studio = "https://www.tiktok.com/tiktokstudio"
-    yt_studio = "https://www.tiktok.com/tiktokstudio"
+    yt_studio = "https://studio.youtube.com/"
     open_Realit(url, insta_link)
     time.sleep(2)
-    moving_file()
+    path = moving_file()
+
     upload_in_tiktok()
+    upload_in_youtube()
+    delete_file(path)
