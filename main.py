@@ -18,11 +18,13 @@ def open_Realit(url, insta_link):
     pyautogui.typewrite(insta_link)
     pyautogui.press("enter")
     pyautogui.scroll(-200)
-    time.sleep(2)
+    time.sleep(3)
     pyautogui.click(913, 1447)
     time.sleep(3)
 
 
+# RedditStories
+# TrueStory
 def moving_file():
     downloads_folder = os.path.expanduser("~/Downloads")  # Path to Downloads folder
     files = os.listdir(downloads_folder)  # List all files in Downloads
@@ -57,9 +59,9 @@ def moving_file():
 
 def upload_in_tiktok():
     webbrowser.open_new(tiktok_studio)
-    time.sleep(3)
-    pyautogui.doubleClick(305, 405)
-    time.sleep(2)
+    time.sleep(4)
+    pyautogui.click(305, 405)
+    time.sleep(4)
     pyautogui.click(1618, 1196)
     time.sleep(2)
     pyautogui.click(667, 328)
@@ -71,12 +73,11 @@ def upload_in_tiktok():
     pyautogui.click(738, 1515)
 
 
-def upload_in_youtube():
+def upload_in_youtube(hashtag):
     webbrowser.open_new(yt_studio)
-    time.sleep(3)
+    time.sleep(5)
     pyautogui.click(2473, 227)
     time.sleep(1)
-
     pyautogui.click(2404, 314)
     time.sleep(1)
     pyautogui.click(1362, 1175)
@@ -85,8 +86,14 @@ def upload_in_youtube():
     time.sleep(2)
     pyautogui.click(2383, 1637)
     time.sleep(5)
-    pyautogui.click(1756, 1360)
+    pyautogui.click(1264, 1254)
     time.sleep(1)
+    pyautogui.typewrite(hashtag, 0.01)
+    time.sleep(10)
+    pyautogui.press("enter")
+    time.sleep(3)
+    pyautogui.click(1780, 1360)
+    time.sleep(3)
     pyautogui.scroll(-1000)
     time.sleep(2)
     pyautogui.click(524, 1094)
@@ -107,6 +114,8 @@ def delete_file(path):
 
 
 if __name__ == "__main__":
+    hashtags = "#RedditStories #TrueStory #RedditConfessions #StoryTime #RedditDrama #AskReddit #RedditAITA #EntitledPeople #CreepyEncounters #ProRevenge #MaliciousCompliance #PettyRevenge #AmITheJerk #RelationshipDrama #CrazyNeighbors #WorkplaceStories #WildConfessions #UnexpectedTwist #RedditMystery #TIFU #AITA #TrueCrime #ScaryStories #SpookyEncounters #LifeLessons #PlotTwist #StrangerThanFiction #ViralStory #RealLifeHorror #MindBlown #YouWontBelieve #CrazyExperience #Unbelievable #EpicFails #SurpriseEnding #TrueEvents #KarmaStories #InstantKarma"
+
     url = "https://reelit.net/#google_vignette"
     insta_link = input("Video link:")
     rename_file = input("Title of video") + ".mp4"
@@ -118,5 +127,5 @@ if __name__ == "__main__":
     path = moving_file()
 
     upload_in_tiktok()
-    upload_in_youtube()
+    upload_in_youtube(hashtags)
     delete_file(path)
