@@ -25,7 +25,7 @@ def open_Realit(url, insta_link):
 
 # RedditStories
 # TrueStory
-def moving_file():
+def moving_file(rename_file):
     downloads_folder = os.path.expanduser("~/Downloads")  # Path to Downloads folder
     files = os.listdir(downloads_folder)  # List all files in Downloads
 
@@ -117,15 +117,24 @@ if __name__ == "__main__":
     hashtags = "#RedditStories #TrueStory #RedditConfessions #StoryTime #RedditDrama #AskReddit #RedditAITA #EntitledPeople #CreepyEncounters #ProRevenge #MaliciousCompliance #PettyRevenge #AmITheJerk #RelationshipDrama #CrazyNeighbors #WorkplaceStories #WildConfessions #UnexpectedTwist #RedditMystery #TIFU #AITA #TrueCrime #ScaryStories #SpookyEncounters #LifeLessons #PlotTwist #StrangerThanFiction #ViralStory #RealLifeHorror #MindBlown #YouWontBelieve #CrazyExperience #Unbelievable #EpicFails #SurpriseEnding #TrueEvents #KarmaStories #InstantKarma"
 
     url = "https://reelit.net/#google_vignette"
-    insta_link = input("Video link:")
-    rename_file = input("Title of video") + ".mp4"
+
+    num_of_vid = int(input("How many video do you wanna upload: "))
+    insta_links = []
+    file_name = []
+    for i in range(num_of_vid):
+        insta_link = input("Video link:")
+        rename_file = input("Title of video") + ".mp4"
+        insta_links.append(insta_link)
+        file_name.append(rename_file)
     yt_folder_link = "C:/Users/ronis/OneDrive - Global College of Management/ytshorts"
     tiktok_studio = "https://www.tiktok.com/tiktokstudio"
     yt_studio = "https://studio.youtube.com/"
-    open_Realit(url, insta_link)
-    time.sleep(2)
-    path = moving_file()
 
-    upload_in_tiktok()
-    upload_in_youtube(hashtags)
-    delete_file(path)
+    for i in range(num_of_vid):
+        open_Realit(url, insta_links[i])
+        time.sleep(2)
+        path = moving_file(file_name[i])
+
+        upload_in_tiktok()
+        upload_in_youtube(hashtags)
+        delete_file(path)

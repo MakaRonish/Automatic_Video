@@ -1,4 +1,2 @@
-import pyautogui
-import time
-
-print(pyautogui.position())
+for i in range(10):
+    print(i)
